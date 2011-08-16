@@ -131,6 +131,11 @@ opts = OptionParser.new do |opts|
     puts "Jekyll " + Jekyll::VERSION
     exit 0
   end
+
+  opts.on("--define NAME=VALUE", "Override any setting in _config.yml") do |setting|
+    name, value = setting.strip.split(/=/)
+    options[name] = value
+  end
 end
 
 # Read command line options into `options` hash
